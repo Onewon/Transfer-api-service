@@ -1,28 +1,39 @@
 # Funds Transfer Service API
 
+## Deployment
+
+1.To run shell scripts to setup environment.
+``` bash
+# Start mysql docker container and redis docker container, to inject SQL file into MySQL。
+cd Scripts/
+sudo bash deployment.sh
+```
+2.Run main file to run service
+``` bash
+go run main.go
+```
+## API Reference
 - [Retrieve Transactions](#retrieve-transactions)
-        * [Description](#description)
-        * [Request URL](#request-url)
-        * [HTTP Request Method](#http-request-method)
-        * [Parameters](#parameters)
-        * [Response Representations](#response-representations)
+  - [Description](#description)
+  - [Request URL](#request-url)
+  - [HTTP Request Method](#http-request-method)
+  - [Parameters](#parameters)
+  - [Response Representations](#response-representations)
 - [Retrieve Balance](#retrieve-balance)
-        * [Description](#description-1)
-        * [Request URL](#request-url-1)
-        * [HTTP Request Method](#http-request-method-1)
-        * [Parameters](#parameters-1)
-        * [Response Representations](#response-representations-1)
+    - [Description](#description-1)
+    - [Request URL](#request-url-1)
+    - [HTTP Request Method](#http-request-method-1)
+    - [Parameters](#parameters-1)
+    - [Response Representations](#response-representations-1)
 - [Funds Transfer](#funds-transfer)
-        * [Description](#description-2)
-        * [Request URL](#request-url-2)
-        * [HTTP Request Method](#http-request-method-2)
-        * [Parameters](#parameters-2)
-        * [Response Representations](#response-representations-2)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+    - [Description](#description-2)
+    - [Request URL](#request-url-2)
+    - [HTTP Request Method](#http-request-method-2)
+    - [Parameters](#parameters-2)
+    - [Response Representations](#response-representations-2)
 
 
-# Retrieve Transactions
+## Retrieve Transactions
 
 ##### Description
 
@@ -78,7 +89,7 @@
 ```
 
 
-# Retrieve Balance
+## Retrieve Balance
 
 ##### Description
 
@@ -125,7 +136,7 @@
 | balance       | decimal | Account balance |
 | requestTime   | date    | Request Time    |
 
-# Funds Transfer
+## Funds Transfer
 
 ##### Description
 
