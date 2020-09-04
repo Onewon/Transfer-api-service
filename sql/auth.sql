@@ -1,0 +1,1 @@
+select user_auth from tbl_user_auth where user_name =?
