@@ -1,5 +1,31 @@
 # Funds Transfer Service API
 
+## Learned by Project
+1 多个docker脚本部署 -> 之后可以再学一下dockerfile
+2 既然写了shell脚本，-> 学习写下python脚本
+3 学会了直接使用echo追加字符到文本，不再依赖于文件了。
+4 思路涉及到了分布式的部署，-> 可以学下 Docker Compose
+5 Golang学会使用defer来取消某种操作
+6 知道了linux 直接交互命令和后台交互的区别，直接交互的命令之后是无法自动化的
+7 知道了golang 还有专门testing的写法
+8 知道了golang 还需要logging -> 学习下怎么正规的logging
+9 知道了golang还有各种语法限制：强制struct大写命名，某些小写命令无法通过。
+实例化的对象大写命名好像也有问题。
+10 具体实践了数据库的悲观锁(走索引的行锁,不走索引的表锁)和乐观锁(逻辑上尽量避免加锁)
+2.1 对于系统操作的业务，我倾向于用shell awk sed 等系统自带的工具，
+像要跑业务，跑任务，那可以考虑用python ，例如多线程任务，excel ，pdf 报表任务等
+
+
+## Want To Do
+- [x] Auth拦截分层 并把handler都分离了
+- [ ] URLEncoding 标准库有坑
+- [ ] dockerfile
+- [ ] 修改为Python 部署脚本
+- [ ] Docker Compose 使用
+- [ ] handler中还差个logging
+- [ ] 学会写 testing
+- [ ] 域名重定向到localhost
+
 ## Deployment
 
 1.To run shell scripts to setup environment.

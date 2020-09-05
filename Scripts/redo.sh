@@ -1,7 +1,15 @@
 #!/bin/bash
 
+docker stop mysql_conn
+docker rm mysql_conn
+rm -rf ~/mysql/test_data
+
+rm ~/scripts/inside.sh
+cat << EOF >~/scripts/inside.sh
+#!/bin/bash
+
 #crate database
-mysql -uroot -p112233 -e "CREATE DATABASE \`maybankdb\`;"
+mysql -uroot -p112233 -e "CREATE DATABASE \`mobileWalletDB\`;"
 echo "create db finish"
 
 #init tables
@@ -54,6 +62,7 @@ CREATE TABLE IF NOT EXISTS \`tbl_user_auth\` (
 CREATE TABLE IF NOT EXISTS \`tbl_user_transaction\` (
   \`id\` int(11) NOT NULL AUTO_INCREMENT,
   \`transaction_ID\` varchar(64) NOT NULL DEFAULT '',
+  \`user_name\` varchar(64) NOT NULL DEFAULT '' COMMENT '',
   \`account_number\` varchar(32) NOT NULL DEFAULT '',
   \`target_account_number\` varchar(32) NOT NULL DEFAULT '',
   \`amount\` decimal(19,2) NOT NULL DEFAULT '0.00' COMMENT 'transaction amount',
@@ -73,7 +82,13 @@ insert ignore into tbl_user_auth (\`user_name\`,\`user_auth\`) values ("user_B",
 -- init user saving
 insert ignore into tbl_user_savings (\`user_name\`,\`account_number\`,\`account_balance\`) values ("user_A","101120223031",100.00);
 insert ignore into tbl_user_savings (\`user_name\`,\`account_number\`,\`account_balance\`) values ("user_B","101120223032",100.00);
+\EOF
+
+mysql -uroot -p112233 mobileWalletDB < /tmp/table.sql
+echo "source finish!"
 EOF
 
-mysql -uroot -p112233 maybankdb < /tmp/table.sql
-echo "source finish!"
+sed -i 's/\\EOF/EOF/g' ~/scripts/inside.sh
+sed -i 's/`/\\`/g' ~/scripts/inside.sh
+chmod +x ~/scripts/inside.sh
+docker ps -a
