@@ -1,5 +1,8 @@
 package handler
 
+/*
+Query for balance and transaction
+*/
 import (
 	"encoding/json"
 	"fmt"

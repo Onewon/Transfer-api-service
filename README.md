@@ -25,9 +25,14 @@
 - [ ] handler中还差个logging
 - [ ] 学会写 testing
 - [ ] 域名重定向到localhost
+重构
+[请求处理层] 鉴权 auth
+[业务逻辑层] query and transfer logic
+[通用处理层] Manager -> helper ->限定于特定逻辑
+（如JSON response struct可以继承）
+[数据持久层] 对接数据源
 
 ## Deployment
-
 1.To run shell scripts to setup environment.
 ``` bash
 # Start mysql docker container and redis docker container, to inject SQL file into MySQL。
