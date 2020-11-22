@@ -1,5 +1,8 @@
 package handler
 
+/*
+Handler for transfer
+*/
 import (
 	"database/sql"
 	"encoding/json"
