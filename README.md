@@ -2,7 +2,7 @@
 
 ## Description
 
-An online API for funds transfer service in local machine. User can retrieve balance and transactions, and send money to other user. Once the transfer processing interrupt, the transaction will be rollback.
+An online API for funds transfer service. User can retrieve balance and transactions, and send money to other user. Once the transfer processing interrupt, the transaction will be rollback.
 
 ## Deployment
 1.To run shell scripts to setup environment.
