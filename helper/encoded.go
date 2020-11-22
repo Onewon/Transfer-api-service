@@ -1,10 +1,8 @@
 package main
 
 import (
-	"crypto/md5"
-	"crypto/sha1"
-	"encoding/hex"
 	"fmt"
+	"transfer-api-service/util"
 )
 
 const (
@@ -12,33 +10,21 @@ const (
 	auth_salt = "*#FF"
 )
 
-func Sha1(data []byte) string {
-	_sha1 := sha1.New()
-	_sha1.Write(data)
-	return hex.EncodeToString(_sha1.Sum([]byte("")))
-}
-
-func MD5(data []byte) string {
-	_md5 := md5.New()
-	_md5.Write(data)
-	return hex.EncodeToString(_md5.Sum([]byte("")))
-}
-
 func main() {
 	password := "userpassword"
-	encodedPsw := Sha1([]byte(salt + password))
+	encodedPsw := util.Sha1([]byte(salt + password))
 	fmt.Println("Source: " + password)
 	fmt.Println("Encoded: " + encodedPsw)
 
-	auth := MD5([]byte(auth_salt + encodedPsw))
+	auth := util.MD5([]byte(auth_salt + encodedPsw))
 	fmt.Println("Auth: " + auth)
 	//
 	password = "userpassword2"
-	encodedPsw = Sha1([]byte(salt + password))
+	encodedPsw = util.Sha1([]byte(salt + password))
 	fmt.Println("Source: " + password)
 	fmt.Println("Encoded: " + encodedPsw)
 
-	auth = MD5([]byte(auth_salt + encodedPsw))
+	auth = util.MD5([]byte(auth_salt + encodedPsw))
 	fmt.Println("Auth: " + auth)
 }
 

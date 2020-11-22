@@ -20,11 +20,14 @@ func main() {
 	username := "user_B"
 	auth := getAuth(username) //"e3e35aa9ca3036f18c107fd30f37b9fe"
 	account := "101120223032"
+	start_date := "2020-09-03 00:00:00"
+	end_date := "2020-09-04 23:00:00"
 	page := ""
 	ip := "192.168.0.101"
 	env := "Windows10_64bit"
-	url := fmt.Sprintf("http://%s//api/user/transaction?uid=%s&auth=%s&accountNo=%s&page=%s&from=%s&env=%s",
-		APIHost, username, auth, account, page, ip, env)
+	url := fmt.Sprintf("http://%s//api/user/transaction?uid=%s&auth=%s&accountNo=%s&from=%s&env=%s&sdate=%s&edate=%s&page=%s",
+		APIHost, username, auth, account, ip, env, start_date, end_date, page)
+	//url = URLEncoder.encode(url,"UTF-8")
 	fmt.Println(url)
 	var expect string
 	expect = `{"UserId":"user_B","TransactionsList":[{"TransactionID":"tscdec031b5a9dff74a83018b53a08e06de","AccountNo":"101120223032","TargetAccountNo":"101120223031","Amount":5,"Time":"2020-09-04 05:56:31","Status":"1"},{"TransactionID":"tsc1a4b58358e692a0512a609841e668474","AccountNo":"101120223032","TargetAccountNo":"101120223031","Amount":5,"Time":"2020-09-04 05:56:34","Status":"1"}],"TransactionPage":1,"IP":"192.168.0.101","Environment":"Windows10_64bit","RequestTime":"2020-09-04 02:04:21"}`

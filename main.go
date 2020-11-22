@@ -8,16 +8,13 @@ import (
 )
 
 func main() {
-	// 静态资源处理
+	// static
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
-	// 接口
+	// interface
 	http.HandleFunc("/", handler.IndexHandler)
-	http.HandleFunc("/api/user/balance", handler.BalanceHandler)
-	http.HandleFunc("/api/user/transaction", handler.TransactionHandler)
-	http.HandleFunc("/api/user/transfer", handler.TransferHandler)
-
-	// 文件存取接口
-	// http.HandleFunc("/file/upload", handler.HTTPInterceptor(handler.UploadHandler))
+	http.HandleFunc("/api/user/balance", handler.AuthInterceptor(handler.BalanceHandler))
+	http.HandleFunc("/api/user/transaction", handler.AuthInterceptor(handler.TransactionHandler))
+	http.HandleFunc("/api/user/transfer", handler.AuthInterceptor(handler.TransferHandler))
 
 	fmt.Printf("Service start，listening [%s]...\n", cfg.ServiceHost)
 	// Start Service

@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	APIHost = "localhost:8080"
+	APIHost = "localhost:8989"
 )
 
 func main() {
@@ -112,10 +112,11 @@ func main() {
 		"uid":             {username},
 		"auth":            {auth},
 		"accountNo":       {"101120223032"},
-		"targetAccountNo": {"101120223035"}, //wrong target account
-		"amount":          {"10"},
-		"from":            {"192.168.0.101"},
-		"env":             {"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"}}
+		"targetAccountNo": {"101120223031"}, //available target account
+		// "targetAccountNo": {"101120223035"}, //wrong target account
+		"amount": {"10"},
+		"from":   {"192.168.0.101"},
+		"env":    {"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"}}
 
 	var expect string
 	expect = ``
