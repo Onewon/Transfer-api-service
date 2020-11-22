@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #crate database
-mysql -uroot -p112233 -e "CREATE DATABASE \`mobileWalletDB\`;"
+mysql -uroot -p112233 -e "CREATE DATABASE \`maybankdb\`;"
 echo "create db finish"
 
 #init tables
@@ -75,5 +75,5 @@ insert ignore into tbl_user_savings (\`user_name\`,\`account_number\`,\`account_
 insert ignore into tbl_user_savings (\`user_name\`,\`account_number\`,\`account_balance\`) values ("user_B","101120223032",100.00);
 EOF
 
-mysql -uroot -p112233 mobileWalletDB < /tmp/table.sql
+mysql -uroot -p112233 maybankdb < /tmp/table.sql
 echo "source finish!"
