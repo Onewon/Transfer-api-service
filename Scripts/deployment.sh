@@ -1,15 +1,9 @@
 #!/bin/bash
-# chmod +x *.sh
 
-echo "start mysql container ..."
-docker pull mysql
-sudo docker run -p 3314:3306 --name mysql_conn -v ~/mysql/test_data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=112233  -d mysql
+#install docker-compose
+# sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+# sudo chmod +x /usr/local/bin/docker-compose
+# sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
-echo "starting redis container ..."
-docker pull redis
-docker run -itd --name redis_conn -p 6380:6379 redis --requirepass "8888"
-sudo docker cp inside.sh mysql_conn:/tmp/inside.sh
-echo "waiting 45s"
-sleep 45
-sudo docker exec -it mysql_conn /bin/sh /tmp/inside.sh
-echo "finish all steps"
+sudo docker-compose up
+echo "Deployment Done."

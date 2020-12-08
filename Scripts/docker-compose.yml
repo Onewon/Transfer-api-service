@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+    mysql_test:
+        build: ./mysql
+        container_name: mysql_conn
+        environment:
+            MYSQL_ROOT_PASSWORD: "112233"
+            MYSQL_USER: "root"
+            MYSQL_PASS: "112233"
+            TZ: "Asia/Shanghai"
+        restart: always
+        ports:
+            - "3314:3306"
+        volumes:
+            - mysql/test_data:/var/lib/mysql
+    redis_test:
+        image: redis
+        container_name: redis_conn
+        command: redis-server --requirepass 8888
+        restart: always
+        ports:
+            - "6380:6379"
+        volumes:
+            - redis/test_data:/data
+
