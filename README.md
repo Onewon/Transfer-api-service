@@ -7,7 +7,7 @@ An online API for funds transfer service. User can retrieve balance and transact
 ## Deployment
 1.To run shell scripts to setup environment.
 ``` bash
-# Start mysql docker container and redis docker container, to inject SQL file into MySQL�
+# Start mysql docker container and redis docker container, to inject SQL file into MySQLã€
 cd Scripts/
 sudo bash deployment.sh
 ```
@@ -146,7 +146,7 @@ go run main.go
 - Funds Transfer Interface
 
 ##### Request URL
-- ` http://localhost:8080/api/user/transfer `
+- ` http://localhost:8080/api/user/transaction `
   
 ##### HTTP Request Method
 - Post
